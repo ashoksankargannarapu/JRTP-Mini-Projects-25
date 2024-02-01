@@ -1,7 +1,6 @@
 package in.ashokit.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,7 +64,7 @@ public class CounsellorServiceImpl implements CounsellorService {
 		
 		int enrolledEnqs = allEnqs.stream()
 				                  .filter(e -> e.getEnqStatus().equals("Enrolled"))
-				                  .collect(Collectors.toList())
+				                  .toList()
 				                  .size();
 		
 		

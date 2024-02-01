@@ -47,9 +47,8 @@ public class EnquirtyServiceImpl implements EnquiryService {
 		
 		Example<StudentEnq> of = Example.of(enq);
 		
-		List<StudentEnq> enquiries = srepo.findAll(of);
 		
-		return enquiries;
+		return srepo.findAll(of);
 	}
 
 }

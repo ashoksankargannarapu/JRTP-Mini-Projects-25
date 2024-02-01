@@ -41,6 +41,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private EmailUtils emailUtils;
 
+	Random random = new Random();
 	@Override
 	public Map<Integer, String> getCountries() {
 
@@ -48,9 +49,8 @@ public class UserServiceImpl implements UserService {
 
 		List<Country> findAll = countryRepo.findAll();
 
-		findAll.forEach(c -> {
-			countries.put(c.getCountryId(), c.getCountryName());
-		});
+		findAll.forEach(c -> 
+			countries.put(c.getCountryId(), c.getCountryName()));
 
 		return countries;
 	}
@@ -62,9 +62,8 @@ public class UserServiceImpl implements UserService {
 
 		List<State> statesList = stateRepo.findByCountryId(countryId);
 
-		statesList.forEach(s -> {
-			statesMap.put(s.getStateId(), s.getStateName());
-		});
+		statesList.forEach(s -> 
+			statesMap.put(s.getStateId(), s.getStateName()));
 
 		return statesMap;
 	}
@@ -76,9 +75,8 @@ public class UserServiceImpl implements UserService {
 
 		List<City> citiesList = cityRepo.findByStateId(stateId);
 
-		citiesList.forEach(c -> {
-			citiesMap.put(c.getCityId(), c.getCityName());
-		});
+		citiesList.forEach(c -> 
+			citiesMap.put(c.getCityId(), c.getCityName()));
 
 		return citiesMap;
 	}
@@ -108,8 +106,7 @@ public class UserServiceImpl implements UserService {
 	private String generateRandomPwd() {
 		String alphanumericCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuv";
 
-		StringBuffer randomString = new StringBuffer(5);
-		Random random = new Random();
+		StringBuilder randomString = new StringBuilder(5);
 
 		for (int i = 0; i < 5; i++) {
 			int randomIndex = random.nextInt(alphanumericCharacters.length() - 1);

@@ -1,5 +1,8 @@
 package in.ashokit.bindings;
 
+import lombok.Data;
+
+@Data
 public class ResetPwdForm {
 
 	private Integer userId;
@@ -7,26 +10,7 @@ public class ResetPwdForm {
 	private String newPwd;
 	private String confirmPwd;
 
-	public Integer getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getNewPwd() {
-		return newPwd;
-	}
-
+	
 	public void setNewPwd(String newPwd) {
 		this.newPwd = newPwd;
 	}

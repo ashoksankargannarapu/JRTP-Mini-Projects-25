@@ -16,9 +16,11 @@ public class DashboardServiceImpl implements DashboardService {
 	private String quoteUrl = "https://type.fit/api/quotes";
 
 	private Quote[] quotes = null;
+	Random r = new Random();
 
 	@Override
 	public String getQuote() {
+		String text="";
 		if (quotes == null) {
 			RestTemplate rt = new RestTemplate();
 			ResponseEntity<String> forEntity = rt.getForEntity(quoteUrl, String.class);
@@ -31,9 +33,11 @@ public class DashboardServiceImpl implements DashboardService {
 				e.printStackTrace();
 			}
 		}
-		Random r = new Random();
+		else {
 		int nextInt = r.nextInt(quotes.length - 1);
-		return quotes[nextInt].getText();
+		text= quotes[nextInt].getText();
+		}
+		return text;
 	}
 }
 
