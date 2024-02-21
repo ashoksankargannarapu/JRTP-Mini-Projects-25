@@ -19,7 +19,7 @@ spring:
     show-sql: true
   mail:
     host: smtp.gmail.com
-    password: jllx mzzy yego ijlq
+    password: kfgz ntdx obqq tnoh
     port: 587
     properties:
       mail:
